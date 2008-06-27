@@ -68,13 +68,21 @@ module BodyMatcher
   def self.included(base) #:nodoc:
     require 'hpricot'
 
+    # This just doesn't work
+    
+    # alias_body = proc {
+    #   alias_method :real_rails_body, :body
+    #   def body
+    #     Matcher.new(real_rails_body) 
+    #   end
+    # }
+    
     alias_body = proc do
-      alias_method :real_rails_body, :body
-      def body
-        Matcher.new(real_rails_body) 
+      def body_matcher
+        Matcher.new(body)
       end
     end
-
+    
     ActionController::TestResponse.class_eval &alias_body
     Test::Unit::TestCase.class_eval           &alias_body
 

@@ -31,3 +31,11 @@ For use with test/spec/rails, which provides the `body' method.  Also
 requires Hpricot. Enjoy.
 
 * Chris Wanstrath [ chris@ozmm.org ]
+
+ChangeLog
+
+06.27.2008 - Modified for compatibility with test/spec 0.4.0.
+Removed the body alias_method and added a new body_matcher method to
+traverse the @response.body. For example:
+
+  body_matcher['#name_field']['value'].should.equal '(your name)'
