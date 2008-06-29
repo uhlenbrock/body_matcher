@@ -36,5 +36,5 @@ requires Hpricot. Enjoy.
 ## Change Log
 
 **06.27.2008** Modified for compatibility with test/spec 0.4.0.
-Removed the body alias_method and added a new body_matcher method 
+Removed the `body` `alias_method` and added a new `body_matcher` method 
 to traverse @response.body.
