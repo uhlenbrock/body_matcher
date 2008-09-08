@@ -22,6 +22,10 @@ BodyMatcher simplifies your view testing.  Forget assert_select.
 	 body_matcher['#name_field'].attributes['value'].should.equal '(your name)'
 	 body_matcher['#name_field']['value'].should.equal '(your name)'
 
+	 or
+	
+	 request.body.should.body_match '(your name)'
+
 The nice part about this is that test failures will print out only
 the HTML you're trying to match.
 
