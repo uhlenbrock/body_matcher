@@ -86,10 +86,18 @@ module BodyMatcher
     ActionController::TestResponse.class_eval &alias_body
     Test::Unit::TestCase.class_eval           &alias_body
 
+    # This just doesn't work
+
+    # alias_match = lambda do
+    #   alias_method :test_spec_match, :match
+    #   def match(target)
+    #     test_spec_match target.is_a?(Regexp) ? target : %r(#{target})
+    #   end
+    # end
+    
     alias_match = lambda do
-      alias_method :test_spec_match, :match
-      def match(target)
-        test_spec_match target.is_a?(Regexp) ? target : %r(#{target})
+      def body_match(target)
+        match target.is_a?(Regexp) ? target : %r(#{target})
       end
     end
 
