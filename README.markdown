@@ -14,17 +14,16 @@ BodyMatcher simplifies your view testing.  Forget assert_select.
 ## Simple assertions:
 
 	 body_matcher['#web_results'].should.match /results from the web/i
-
-	 body_matcher['#categories_dropdown'].should.include "#{topic}[#{count}]" 
+	 body_matcher['#categories_dropdown'].should.include "#{topic}[#{count}]"
+	
+	 or
+	
+	 request.body.should.body_match '(your name)'
 
 ## Access the attributes:
 
 	 body_matcher['#name_field'].attributes['value'].should.equal '(your name)'
 	 body_matcher['#name_field']['value'].should.equal '(your name)'
-
-	 or
-	
-	 request.body.should.body_match '(your name)'
 
 The nice part about this is that test failures will print out only
 the HTML you're trying to match.
